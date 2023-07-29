@@ -33,7 +33,7 @@ public class Student {
     private String address;
 
     @Column(nullable = false)
-    private String Course;
+    private String course;
 
     @CreationTimestamp
     private LocalDateTime createdDate;

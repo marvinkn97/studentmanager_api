@@ -22,7 +22,7 @@ public class StudentManagementApplication {
 		return args -> {
 			Faker faker = new Faker();
 
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 15; i++) {
 				Student student = new Student();
 				var firstName = faker.name().firstName();
 				var lastName = faker.name().lastName();
@@ -30,7 +30,7 @@ public class StudentManagementApplication {
 				student.setFirstName(firstName);
 				student.setLastName(lastName);
 
-				student.setEmail(firstName.toLowerCase() + lastName.toLowerCase() + "@gmail.com");
+				student.setEmail(firstName.toLowerCase() + lastName.toLowerCase() + "@example.com");
 				student.setPhone(faker.phoneNumber().cellPhone());
 				student.setAddress(faker.address().fullAddress());
 				student.setCourse(faker.educator().course());
@@ -45,8 +45,8 @@ public class StudentManagementApplication {
 			@SuppressWarnings("NullableProblems")
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**")
-						.allowedMethods("*")
+				registry.addMapping("/api/**")
+						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedOrigins("http://localhost:4200");
 
 			}
